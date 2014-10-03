@@ -26,6 +26,14 @@ cobbler-server:
     - sources:
       - cobbler: http://download.opensuse.org/repositories/home:/libertas-ict:/cobbler26/Debian_7.0/all/cobbler_2.6.5-1_all.deb
 
+  file.directory:
+    - name: /var/lib/cobbler/webui_sessions
+    - makedirs: True
+    - user: www-data
+    - group: www-data
+    - file_mode: 660
+    - dir_mode: 775
+
 cobbler-apache-service:
   service:
     - running
