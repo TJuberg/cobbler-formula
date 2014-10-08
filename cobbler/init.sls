@@ -7,6 +7,7 @@ cobbler-dependencies:
       - apache2
       - libapache2-mod-proxy-html
       - libapache2-mod-wsgi
+      - cman
 
 cobbler-a2en:
   cmd.run:
@@ -45,4 +46,8 @@ cobblerd-service:
     - running
     - name: cobblerd
     - enable: True
+  file.managed:
+    - name: /etc/cobbler/settings
+    - template: jinja
+    - source: salt://cobbler/files/settings
 
