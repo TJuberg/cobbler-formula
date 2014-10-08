@@ -51,3 +51,7 @@ cobblerd-service:
     - template: jinja
     - source: salt://cobbler/files/settings
 
+/srv/tftp:
+  file.directory:
+    - makedirs: True
+
